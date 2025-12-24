@@ -23,6 +23,8 @@ class ArticleController extends Controller
                 'description' => $article->description,
                 'cover_image' => $article->cover_image,
                 'published_at' => $article->published_at,
+                'updated_content' => $article->updated_content ? true : false,
+                'targeting' => $article->targeting ? true : false,
             ];
         });
         return response()->json($articles);
@@ -61,6 +63,13 @@ class ArticleController extends Controller
     public function show($slug)
     {
         $article = Article::where('slug', $slug)->first();
+
+        if (!$article || !$article->content) {
+            return response()->json([
+                'message' => 'Article not found'
+            ], 404);
+        }
+
         return response()->json($article);
     }
 

@@ -66,7 +66,7 @@ const Article = ({ article, content }) => {
 
 
     return (
-        <article className="w-full max-w-7xl mx-auto px-4 py-8 flex flex-col align-center">
+        <article className="w-full max-w-6xl mx-auto px-4 py-8 flex flex-col align-center">
             <div className="w-full flex flex-col align-center text-center gap-4">
                 <span className="text-gray-600">{formattedDate}</span>
 

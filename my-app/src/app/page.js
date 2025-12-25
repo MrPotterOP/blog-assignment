@@ -35,13 +35,13 @@ export default async function Home() {
         <Navbar />
       </header>
       {
-        articles && articles.length > 0 ? (
+        articles && articles.length > 1 ? (
           <main>
             <Hero articles={[articles[0], articles[1]]} />
             <ListBlogs articles={articles.slice(2)} />
           </main>
         ) : (
-          <p>No articles found.</p>
+          <p className="text-center text-xl">No articles found</p>
         )
       }
       <Footer />

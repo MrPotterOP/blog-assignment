@@ -2,6 +2,7 @@ import Navbar from "@/app/components/Navbar";
 import Targeting from "@/app/components/Targeting";
 import TabsNav from "@/app/components/TabsNav";
 import Footer from "@/app/components/Footer";
+import { redirect } from "next/navigation";
 
 export const revalidate = false;
 
@@ -27,7 +28,7 @@ export default async function Home({ params }) {
     const article = await getArticles(slug);
 
     if (!article || !article.targeting.primary_search_term) {
-        return <div>Article not found.</div>;
+        redirect("/404");
     }
 
     return (
